@@ -1,14 +1,32 @@
-export default function AppReducer(state, action) {
-  if (state === undefined) {
-    return {};
-  }
+const initialState = {
+    session: {
+        user: {},
+        userToken: ""
+    },
+    users: []
+};
 
-  switch (action.type) {
-    case "TEST_REDUCER":
-      // DELETE OR CHANGE ME: I AM JUST AN EXAMPLE
-      return Object.assign({}, state, { newData: action.data });
-  }
+export default function AppReducer(currentState, action) {
+    if (currentState === undefined) {
+        return {};
+    }
 
-  console.log("Unhandled State!");
-  return state;
+    switch (action.type) {
+        case "LOGGED_IN":
+            console.log("logged in", action.usertoken);
+            return Object.assign(
+                {},
+                currentState,
+                newState({
+                    session: {
+                        user: action.user,
+                        usertoken: action.usertoken
+                    },
+                    users: session.push(users)
+                })
+            );
+    }
+
+    console.log("Unhandled State!");
+    return currentState;
 }

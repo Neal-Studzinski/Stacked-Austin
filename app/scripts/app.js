@@ -6,26 +6,29 @@ import { Provider } from "react-redux";
 import AppRoot from "./components/app_root.js";
 import About from "./components/about.js";
 import Contact from "./components/contact.js";
+import Login from "./components/login.js";
+import Signup from "./components/signup.js";
 
 const Nav = () => (
-  <nav>
-    <li><Link to="/about">About</Link></li>
-    <li><Link to="/contact-us">Contact</Link></li>
-  </nav>
+    <nav>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/contact-us">Contact</Link></li>
+    </nav>
 );
 
 export default function app() {
-  render(
-    <Provider store={store}>
-      <Router>
-        <div>
-          <Nav />
-          <Route exact path="/" component={AppRoot} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact-us" component={Contact} />
-        </div>
-      </Router>
-    </Provider>,
-    document.getElementById("app")
-  );
+    render(
+        <Provider store={store}>
+            <Router>
+                <div>
+                    <Nav />
+                    <Route exact path="/" component={Login} />
+                    <Route exact path="/signup" component={Signup} />
+                    <Route exact path="/about" component={About} />
+                    <Route exact path="/contact-us" component={Contact} />
+                </div>
+            </Router>
+        </Provider>,
+        document.getElementById("app")
+    );
 }
