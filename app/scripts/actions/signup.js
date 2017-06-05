@@ -1,3 +1,5 @@
+import User from "../models/user.js";
+
 export default function signupNewUser(
     signupFullName,
     signupEmail,
@@ -17,8 +19,19 @@ export default function signupNewUser(
                 name: signupFullName,
                 email: signupEmail,
                 password: signupPassword
-            }),
-            success: (data, status, xhr) => {}
+            })
+        }).then((data, status, xhr) => {
+            //let retrievedUserToken = data["user-token"];
+            dispatch({
+                type: "CREATE_USER",
+                user: new User({
+                    id: data.objectId,
+                    userName: data.userName,
+                    bio: data.bio || "",
+                    image: data.image
+                })
+                //userToken: data["user-token"]
+            });
         });
     };
 }

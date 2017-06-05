@@ -8,6 +8,7 @@ import About from "./components/about.js";
 import Contact from "./components/contact.js";
 import Login from "./components/login.js";
 import Signup from "./components/signup.js";
+import Home from "./components/home.js";
 
 const Nav = () => (
     <nav>
@@ -23,6 +24,7 @@ export default function app() {
                 <div>
                     <Nav />
                     <Route exact path="/" component={Login} />
+                    <Route exact path="/home" component={Home} />
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/contact-us" component={Contact} />

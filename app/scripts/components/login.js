@@ -14,12 +14,10 @@ class Login extends React.Component {
 
     handleLogin(history) {
         event.preventDefault();
-        console.log(event);
-        console.log("history", history);
         const loginEmail = this.refs.loginEmail.value;
         const loginPassword = this.refs.loginPassword.value;
         this.props.dispatch(loginUser(loginEmail, loginPassword));
-        //this.props.history.push("/header");
+        this.props.history.push("/home");
     }
 
     render() {

@@ -14,11 +14,11 @@ export default function loginUser(loginEmail, loginPassword) {
                 password: loginPassword
             }),
             success: (data, status, xhr) => {
-                console.log(data["user-token"]);
                 dispatch({
                     type: "LOGGED_IN",
-                    usertoken: data["user-token"],
-                    name: data.name
+                    userToken: data["user-token"],
+                    name: data.name,
+                    user: data
                 });
                 //dispatch();
             }
