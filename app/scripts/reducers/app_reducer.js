@@ -2,7 +2,7 @@ import utils from "../utils.js";
 
 const initialState = {
     session: {
-        user: {},
+        user: { null },
         userToken: ""
     },
     users: []
@@ -41,8 +41,18 @@ export default function AppReducer(currentState, action) {
                 session,
                 users
             };
-
             return Object.assign({}, currentState, newState);
+
+        case "LOGOUT_USER":
+            var session = {
+                user: null,
+                userToken: null
+            };
+            newState = {
+                session
+            };
+            return Object.assign({}, currentState, newState);
+            console.log("logged out");
     }
 
     console.log("Unhandled State!");

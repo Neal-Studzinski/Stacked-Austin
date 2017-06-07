@@ -21,7 +21,6 @@ export default function signupNewUser(
                 password: signupPassword
             })
         }).then((data, status, xhr) => {
-            //let retrievedUserToken = data["user-token"];
             dispatch({
                 type: "CREATE_USER",
                 user: new User({
@@ -30,7 +29,6 @@ export default function signupNewUser(
                     bio: data.bio || "",
                     image: data.image
                 })
-                //userToken: data["user-token"]
             });
         });
     };

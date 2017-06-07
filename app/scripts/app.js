@@ -9,20 +9,17 @@ import Contact from "./components/contact.js";
 import Login from "./components/login.js";
 import Signup from "./components/signup.js";
 import Home from "./components/home.js";
-
-const Nav = () => (
-    <nav>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/contact-us">Contact</Link></li>
-    </nav>
-);
+import LogOut from "./actions/logout.js";
+import NavBar from "./components/navBar.js";
 
 export default function app() {
     render(
         <Provider store={store}>
             <Router>
                 <div>
-                    <Nav />
+
+                    <Route path="/" component={NavBar} />
+                    <Route path="/navbar" component={NavBar} />
                     <Route exact path="/" component={Login} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/signup" component={Signup} />
