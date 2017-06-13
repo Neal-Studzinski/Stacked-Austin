@@ -22,7 +22,7 @@ class NavBar extends React.Component {
     render() {
         let hideClass = "hide";
 
-        if (this.props.session.user === null) {
+        if (this.props.session.user !== null) {
             console.log(this.props.session.user);
             hideClass = "show";
         }
