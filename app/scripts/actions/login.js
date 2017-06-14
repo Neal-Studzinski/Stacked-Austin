@@ -1,3 +1,5 @@
+import loadProfile from "../actions/info_request.js";
+
 export default function loginUser(loginEmail, loginPassword) {
     return dispatch => {
         return $.ajax({
@@ -20,6 +22,7 @@ export default function loginUser(loginEmail, loginPassword) {
                     name: data.name,
                     user: data
                 });
+                dispatch(loadProfile());
                 //dispatch();
             }
         });

@@ -1,3 +1,5 @@
+import User from "../models/user.js";
+
 export default function loadProfile() {
     //All async action creators should return a function that takes 'dispatch' as its argument
     return function(dispatch) {
@@ -13,23 +15,31 @@ export default function loadProfile() {
                 "secret-key": "F53D1A8A-AB89-64FB-FFA5-B6675F9BAA00"
                 //"Content-Type":
             }
-        }).then((userData, status, xhr) => {
-            let userObjects = userData.data.map(profile => {
-                user: ({
-                    id: data.objectId,
-                    userName: data.userName,
-                    bio: data.bio || "",
-                    image: data.image
+        }).then((data, status, xhr) => {
+            let userObjects = data.data.map(profile => {
+                return new User({
+                    key: profile.objectId,
+                    userName: profile.userName,
+                    bio: profile.bio || "",
+                    image: profile.image
                 });
-                console.log(">> put into User objects: ", userObjects);
-                //dispatch(getAllPosts());
-                //this.props.history.push("/showing_posts");
-                dispatch({
-                    type: "LOAD_PROFILE_INTO_STATE",
-                    users: userObjects
-                });
-                //dispatch(getAllPosts());
             });
+
+            console.log(userObjects);
+
+            dispatch({
+                type: "LOAD_PROFILE_INTO_STATE",
+                users: userObjects
+            });
+            //this.props.history.push("/profile");
+            // console.log(">> put into User objects: ", userObjects);
+            // //dispatch(getAllPosts());
+            // //this.props.history.push("/showing_posts");
+            // dispatch({
+            //     type: "LOAD_PROFILE_INTO_STATE",
+            //     users: userObjects
+            // });
+            //dispatch(getAllPosts());
         });
     };
     return currentState;

@@ -3,26 +3,23 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
+import loadProfile from "../actions/info_request";
 
 class Profile extends React.Component {
     constructor(props) {
         super(props);
     }
 
+    console.log('profile ',profile);
+
     render() {
         return (
-            <section>
-                <h2>Please contact Us</h2>
-                <form>
-                    <input
-                        type="text"
-                        onChange={this.handleChange}
-                        defaultValue="name"
-                    />
-                    <input type="email" defaultValue="email" />
-                    <input type="submit" value="Send" />
-                </form>
-            </section>
+            <User
+                key={profile.key}
+                userName={profile.userName}
+                bio={profile.bio}
+                image={profile.image}
+            />
         );
     }
 }

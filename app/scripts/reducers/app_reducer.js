@@ -42,11 +42,13 @@ export default function AppReducer(currentState, action) {
                 users
             };
             return Object.assign({}, currentState, newState);
-        // case "LOAD_PROFILE_INTO_STATE":
-        //     return newState({
-        //         users: action.posts || []
-        //     });
 
+        case "LOAD_PROFILE_INTO_STATE":
+            //action.history.push("/profile");
+            newState = {
+                users: action.users
+            };
+            return Object.assign({}, currentState, newState);
 
         case "LOGOUT_USER":
             var session = {
