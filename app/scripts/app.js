@@ -11,6 +11,7 @@ import Signup from "./components/signup.js";
 import Home from "./components/home.js";
 import LogOut from "./actions/logout.js";
 import NavBar from "./components/navBar.js";
+import Profile from "./components/profile.js";
 
 export default function app() {
     render(
@@ -25,6 +26,7 @@ export default function app() {
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/about" component={About} />
                     <Route exact path="/contact-us" component={Contact} />
+                    <Route exact path="/profile" component={Profile} />
                 </div>
             </Router>
         </Provider>,

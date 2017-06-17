@@ -37,6 +37,8 @@ class NavBar extends React.Component {
                             type="submit"
                             value="LOGOUT"
                         />
+                        //{this.props.session.user.userName}
+                        <Link to="/profile">Profile</Link>
                     </div>
 
                 </div>

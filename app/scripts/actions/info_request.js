@@ -31,7 +31,7 @@ export default function loadProfile() {
                 type: "LOAD_PROFILE_INTO_STATE",
                 users: userObjects
             });
-            //this.props.history.push("/profile");
+            //history.push("/profile");
             // console.log(">> put into User objects: ", userObjects);
             // //dispatch(getAllPosts());
             // //this.props.history.push("/showing_posts");

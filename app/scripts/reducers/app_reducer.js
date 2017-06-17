@@ -48,6 +48,7 @@ export default function AppReducer(currentState, action) {
             newState = {
                 users: action.users
             };
+            //console.log("profile ", users.users);
             return Object.assign({}, currentState, newState);
 
         case "LOGOUT_USER":
