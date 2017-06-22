@@ -18,10 +18,7 @@ class Profile extends React.Component {
             <div>
                 <h1>Profile</h1>
                 {this.props.session.user.userName}
-                <img
-                    className="profile-image"
-                    src={this.props.session.user.image}
-                />
+                <img className="profile-image" src={"https://ibb.co/jxAiXk"} />
 
                 {this.props.session.user.bio}
             </div>
